@@ -1,0 +1,23 @@
+# ansible deploy web app
+---
+- name: deploy web app
+  hosts: n2
+  become: yes
+
+  tasks:
+  - name: Install Git
+    yum:
+     name: git
+     state: present
+     
+  - name: Host Code
+    git:
+     repo: https://github.com/CeeyIT-Solutions/ecomm-3.git
+     dest: /var/www/html
+    register: git_result
+
+  - name: Debugging - Git task result
+    debug:
+      var: git_result
+
+...
