@@ -1,7 +1,7 @@
 # Install HTTP server on Ubuntu
 ---
 - name: Install HTTP server
-  hosts: n2
+  hosts: n2u
   become: yes
 
   tasks:
