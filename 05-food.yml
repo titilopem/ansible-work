@@ -1,0 +1,19 @@
+# ansible deploy web app
+---
+- name: deploy web app
+  hosts: n2
+  become: yes
+
+  tasks:
+  - name: Install Git
+    yum:
+     name: git
+     state: present
+     
+  - name: Host Code
+    git:
+     repo: https://github.com/CeeyIT-Solutions/food3.git
+     dest: /var/www/html
+     force: yes
+
+...

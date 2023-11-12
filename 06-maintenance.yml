@@ -1,0 +1,13 @@
+# ansible deploy web app
+---
+- name: Under-Maintenance
+  hosts: n2
+  become: yes
+
+  tasks:
+  - name: Update maintenance
+    copy:
+     src: maintenance.html
+     dest: /var/www/html/index.html
+     force: yes
+...

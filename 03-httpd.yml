@@ -1,7 +1,7 @@
 # ansible install http server
 ---
 - name: Install HTTP server
-  hosts: n2
+  hosts: all
   become: yes
 
   tasks:
