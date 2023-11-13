@@ -5,37 +5,37 @@
   become: yes
 
   tasks:
-  - name: Install HTTPD
+   - name: Install HTTPD
     dnf:
      name: httpd
      state: present
     when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
 
-  - name: Start httpd
+   - name: Start httpd
     service:
      name: httpd
      state: started
     when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
 
-  - name: Enable httpd
+   - name: Enable httpd
     service:
      name: httpd
      enabled: yes
     when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
 
-  - name: Install Apache2
+   - name: Install Apache2
     apt:
      name: apache2
      state: present
     when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 
-  - name: Start apache2
+   - name: Start apache2
     service:
      name: apache2
      state: started
     when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 
-  - name: Enable apache2
+   - name: Enable apache2
     service:
      name: apache2
      enabled: yes
