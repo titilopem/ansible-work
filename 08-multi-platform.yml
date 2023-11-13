@@ -5,43 +5,39 @@
   become: yes
 
   tasks:
-  - name: Install dnf on CentOS/Amazon
-    raw: "sudo yum install -y dnf"
-    when: ansible_distribution == ['Amazon', 'CentOS']
-
-  - name: Install HTTPD on CentOS/Amazon
+  - name: Install HTTPD
     dnf:
      name: httpd
      state: present
-    when: ansible_distribution == ['Amazon', 'CentOS']
+    when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
 
-  - name: Start httpd on CentOS/Amazon
+  - name: Start httpd
     service:
      name: httpd
      state: started
-    when: ansible_distribution == ['Amazon', 'CentOS']
+    when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
 
-  - name: Enable httpd on CentOS/Amazon
+  - name: Enable httpd
     service:
      name: httpd
      enabled: yes
-    when: ansible_distribution == ['Amazon', 'CentOS']
+    when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
 
-  - name: Install Apache2 on Ubuntu/Debian
+  - name: Install Apache2
     apt:
      name: apache2
      state: present
-    when: ansible_distribution == ['Ubuntu', 'Debian']
+    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 
-  - name: Start apache2 on Ubuntu/Debian
+  - name: Start apache2
     service:
      name: apache2
      state: started
-    when: ansible_distribution == ['Ubuntu', 'Debian']
+    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 
-  - name: Enable apache2 on Ubuntu/Debian
+  - name: Enable apache2
     service:
      name: apache2
      enabled: yes
-    when: ansible_distribution == ['Ubuntu', 'Debian']
+    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 ...
