@@ -4,21 +4,57 @@
   become: yes
 
   tasks:
-    - name: Install HTTPD
-      package:
-        name: "{{ 'httpd' if ansible_distribution == 'Amazon' or ansible_distribution == 'CentOS' else 'apache2' }}"
+    - name: Install HTTPD on Amazon Linux
+      dnf:
+        name: httpd
         state: present
-      when: ansible_distribution in ['Amazon', 'CentOS', 'Ubuntu', 'Debian']
+      when: ansible_distribution == "Amazon"
 
-    - name: Start HTTPD or Apache2
+    - name: Start HTTPD on Amazon Linux
       service:
-        name: "{{ 'httpd' if ansible_distribution == 'Amazon' or ansible_distribution == 'CentOS' else 'apache2' }}"
+        name: httpd
         state: started
-      when: ansible_distribution in ['Amazon', 'CentOS', 'Ubuntu', 'Debian']
+      when: ansible_distribution == "Amazon"
 
-    - name: Enable HTTPD or Apache2
+    - name: Enable HTTPD on Amazon Linux
       service:
-        name: "{{ 'httpd' if ansible_distribution == 'Amazon' or ansible_distribution == 'CentOS' else 'apache2' }}"
+        name: httpd
         enabled: yes
-      when: ansible_distribution in ['Amazon', 'CentOS', 'Ubuntu', 'Debian']
+      when: ansible_distribution == "Amazon"
+
+    - name: Install Apache2 on Debian
+      apt:
+        name: apache2
+        state: present
+      when: ansible_distribution == "Debian"
+
+    - name: Start Apache2 on Debian
+      service:
+        name: apache2
+        state: started
+      when: ansible_distribution == "Debian"
+
+    - name: Enable Apache2 on Debian
+      service:
+        name: apache2
+        enabled: yes
+      when: ansible_distribution == "Debian"
+
+    - name: Install HTTPD on CentOS
+      dnf:
+        name: httpd
+        state: present
+      when: ansible_distribution == "CentOS"
+
+    - name: Start HTTPD on CentOS
+      service:
+        name: httpd
+        state: started
+      when: ansible_distribution == "CentOS"
+
+    - name: Enable HTTPD on CentOS
+      service:
+        name: httpd
+        enabled: yes
+      when: ansible_distribution == "CentOS"
 ...
