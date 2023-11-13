@@ -9,19 +9,19 @@
      dnf:
       name: httpd
       state: present
-     when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
+     when: ansible_distribution == "Amazon" or ansible_distribution == "Centos"
 
    - name: Start httpd
      service:
       name: httpd
       state: started
-     when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
+     when: ansible_distribution == "Amazon" or ansible_distribution == "Centos"
 
    - name: Enable httpd
      service:
       name: httpd
       enabled: yes
-     when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
+     when: ansible_distribution == "Amazon" or ansible_distribution == "Centos"
 
    - name: Install Apache2
      apt:
