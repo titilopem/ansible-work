@@ -1,0 +1,14 @@
+---
+- name: Variables Demo
+  hosts: all
+  become: yes
+  vars:
+   myusername: Titilopem
+
+  tasks:
+  - name: Update Dynamic page
+    template:
+     src: dynamic.j2
+     dest: /var/www/html/dynamic.html
+     force: yes
+...
