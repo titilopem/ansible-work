@@ -5,7 +5,7 @@
 
   tasks:
   - name: Update static page
-    temp:
+    template:
      src: dynamic.j2
      dest: /var/www/html/dynamic.html
      force: yes
