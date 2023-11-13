@@ -6,22 +6,22 @@
 
   tasks:
    - name: Install HTTPD
-     dnf:
+     yum:
       name: httpd
       state: present
-     when: ansible_distribution == "Amazon" or ansible_distribution == "Centos"
+     when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
 
    - name: Start httpd
      service:
       name: httpd
       state: started
-     when: ansible_distribution == "Amazon" or ansible_distribution == "Centos"
+     when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
 
    - name: Enable httpd
      service:
       name: httpd
       enabled: yes
-     when: ansible_distribution == "Amazon" or ansible_distribution == "Centos"
+     when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
 
    - name: Install Apache2
      apt:
