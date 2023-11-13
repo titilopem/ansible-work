@@ -21,7 +21,7 @@
      service:
       name: httpd
       enabled: yes
-    when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
+     when: ansible_distribution == "Amazon" or ansible_distribution == "CentOS"
 
    - name: Install Apache2
      apt:
