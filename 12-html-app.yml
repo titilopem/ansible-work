@@ -1,0 +1,10 @@
+# ansible deploy web app
+---
+- name: deploy web app
+  hosts: n1a
+  become: yes
+
+  tasks:
+  - apache
+  - html
+...
