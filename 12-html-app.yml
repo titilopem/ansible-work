@@ -5,6 +5,6 @@
   become: yes
 
   tasks:
-  - apache
-  - html
+    - apache
+    - html
 ...
