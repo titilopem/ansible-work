@@ -3,7 +3,7 @@
   hosts: n1a
   become: yes
 
-  tasks:
+  roles:
    - apache
    - html
 ...
